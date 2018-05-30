@@ -40,7 +40,7 @@ class PubTest < MiniTest::Test
   end
 
   def test_customer_is_over_18?
-    assert_equal(true, @pub.is_over_18?(@customer.age))
+    assert_equal(true, @pub.is_over_18?(@customer))
   end
 
 
