@@ -13,5 +13,24 @@ class PubTest < MiniTest::Test
     @pub = Pub.new("Footlights", 100, [@drink1, @drink2, @drink3])
   end
 
+  def test_pub_has_name
+    assert_equal("Footlights", @pub.name)
+  end
+
+  def test_pub_has_till
+    assert_equal(100, @pub.till)
+  end
+
+  def test_pub_has_drinks
+    assert_equal([@drink1, @drink2, @drink3], @pub.drinks)
+    assert_equal(3, @pub.drinks.length)
+  end
+
+  def test_pub_can_sell_one_drink
+     drink = @pub.one_drink_sold
+    assert_equal(@drink3.name, drink.name)
+  end
+
+
 
 end
