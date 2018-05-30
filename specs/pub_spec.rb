@@ -29,18 +29,18 @@ class PubTest < MiniTest::Test
     assert_equal(3, @pub.drinks.length)
   end
 
-  def test_pub_can_sell_one_drink
-     drink = @pub.one_drink_sold
-    assert_equal(@drink3.name, drink.name)
+  def test_pub_can_serve_customer
+    @pub.serve(@customer, @drink3)
+    assert_equal(105, @pub.till)
+    assert_equal(15, @customer.wallet)
   end
 
-  def test_increase_money_in_till
-    @pub.increase_money_in_till(@drink1)
-    assert_equal(103, @pub.till)
+  def test_customer_is_too_young?
+    assert_equal(false, @pub.is_too_young?(@customer))
   end
 
-  def test_customer_is_over_18?
-    assert_equal(true, @pub.is_over_18?(@customer))
+  def test_customer_is_too_drunk?
+    assert_equal(false, @pub.is_too_drunk?(@customer))
   end
 
 

@@ -9,22 +9,23 @@ attr_reader :name , :till, :drinks
     @drinks = drinks
  end
 
- def one_drink_sold
-  return @drinks.pop()
- end
-
- def increase_money_in_till(drink)
-   price = drink.price
-   @till += price
- end
-
- def is_over_18?(customer)
-   return customer.age >= 18
+ def is_too_young?(customer)
+   return customer.age < 18
   end
 
+  def is_too_drunk?(customer)
+    return customer.drunkenness_level >= 100
+  end
 
+ def serve(customer, drink)
+    return if is_too_young?(customer)
+    return if is_too_drunk?(customer)
+    return if !@drinks.include?(drink)
 
+    customer.buys_drink(drink)
+    @till += drink.price
 
+  end
 
 
 end
