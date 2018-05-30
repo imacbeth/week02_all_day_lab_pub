@@ -18,7 +18,14 @@ attr_reader :name , :till, :drinks
    @till += price
  end
 
+ def is_over_18?(age)
+   if age >= 18
+   return true
+    end
+  return false
+  end
 
+  
 
 
 
