@@ -26,4 +26,11 @@ class CustomerTest < MiniTest::Test
     assert_equal(17, @customer.wallet)
   end
 
+  def test_customer_buys_drink_from_pub
+    @customer.buys_drink_from_pub(@pub, @drink2)
+    assert_equal(16, @customer.wallet)
+    assert_equal(104, @pub.till)
+    
+  end
+
 end
