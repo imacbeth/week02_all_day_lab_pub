@@ -13,6 +13,12 @@ attr_reader :name , :till, :drinks
   return @drinks.pop()
  end
 
+ def increase_money_in_till(drink)
+   price = drink.price
+   @till += price
+ end
+
+
 
 
 

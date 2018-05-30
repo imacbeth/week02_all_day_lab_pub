@@ -32,6 +32,10 @@ class PubTest < MiniTest::Test
     assert_equal(@drink3.name, drink.name)
   end
 
+  def test_increase_money_in_till
+    @pub.increase_money_in_till(@drink1)
+    assert_equal(103, @pub.till)
+  end
 
 
 end
